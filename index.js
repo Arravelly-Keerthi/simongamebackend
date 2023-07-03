@@ -7,6 +7,7 @@ const Users=require("./routes/users");
 const express=require('express');
 const mongoose=require("mongoose");
 const cors =require ('cors');
+const PORT=process.env.PORT||8080
 require('dotenv').config();
 const app=express();
 const url=process.env.MONGODB_URL;
@@ -26,4 +27,4 @@ app.use("/login",UserLogin);
 app.use("/register",UserRegister);
 app.use("/users",Users);
 
-app.listen(8080,()=>console.log("The server is connected!!!"));
+app.listen(PORT,()=>console.log("The server is connected!!!"));
