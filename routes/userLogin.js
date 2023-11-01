@@ -3,8 +3,6 @@ const bcrypt = require('bcryptjs');
 const User = require("../models/User");
 const router = express.Router();
 router.post("/", async (req, res) => {
-
-
   try {
     if (req.body.username === null) res.status(404).send("Incorrect username");
     else {
@@ -19,7 +17,7 @@ router.post("/", async (req, res) => {
           if (!ispassword) {
             res.status(404).send("Incorrect password");
           }
-          else {
+          else  {
             res.status(200).json(user._id);
           }
         }

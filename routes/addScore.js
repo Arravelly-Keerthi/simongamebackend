@@ -5,11 +5,9 @@ const router = express.Router();
 router.post('/:_id', async (req, res) => {
   const { score } = req.body;
   const { _id } = req.params;
-
   try {
     // Check if a score already exists for the given user ID
     const existingScore = await Score.findOne({ user_id: _id });
-
     if (existingScore) {
       // If a score exists, compare with the new score and update if necessary
       if (score > existingScore.score) {
